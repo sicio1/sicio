@@ -1,0 +1,214 @@
+<!-- 
+╓───────────────────────╖
+║  ©   Copyright   2023    ║
+║             sicio             ║
+╙───────────────────────╜
+
+All rights reserved.
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bubble Sort Visualizer</title>
+	<style>
+		body {
+			background-color: #fff;
+			font-family: Arial, sans-serif;
+		}
+
+		.container {
+			max-width: 1920px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		.sorting-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-end;
+			margin: 50px 0;
+			height: 400px;
+		}
+
+		.bar {
+			width: 20px;
+			margin: 0 5px;
+			background-color: #539dc2;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1><b>Bubble Sort</b></h1>
+
+		<button onclick="randomize()">Randomize</button>
+		<button onclick="bubbleSort()">Sort Bars</button>
+
+		<input type="range" id="slider" name="slider" min="1" max="1000">
+		<p id="valueDisplay">Valore: <span id="selectedValue">500</span></p>
+		
+		<div class="sorting-container">
+			<div class="bar" id="bar1"></div>
+			<div class="bar" id="bar2"></div>
+			<div class="bar" id="bar3"></div>
+			<div class="bar" id="bar4"></div>
+			<div class="bar" id="bar5"></div>
+			<div class="bar" id="bar6"></div>
+			<div class="bar" id="bar7"></div>
+			<div class="bar" id="bar8"></div>
+			<div class="bar" id="bar9"></div>
+			<div class="bar" id="bar10"></div>
+			<div class="bar" id="bar11"></div>
+			<div class="bar" id="bar12"></div>
+			<div class="bar" id="bar13"></div>
+			<div class="bar" id="bar14"></div>
+			<div class="bar" id="bar15"></div>
+			<div class="bar" id="bar16"></div>
+			<div class="bar" id="bar17"></div>
+			<div class="bar" id="bar18"></div>
+			<div class="bar" id="bar19"></div>
+			<div class="bar" id="bar20"></div>
+			<div class="bar" id="bar21"></div>
+			<div class="bar" id="bar22"></div>
+			<div class="bar" id="bar23"></div>
+			<div class="bar" id="bar24"></div>
+			<div class="bar" id="bar25"></div>
+			<div class="bar" id="bar26"></div>
+			<div class="bar" id="bar27"></div>
+			<div class="bar" id="bar28"></div>
+			<div class="bar" id="bar29"></div>
+			<div class="bar" id="bar30"></div>
+			<div class="bar" id="bar31"></div>
+			<div class="bar" id="bar32"></div>
+			<div class="bar" id="bar33"></div>
+			<div class="bar" id="bar34"></div>
+			<div class="bar" id="bar35"></div>
+			<div class="bar" id="bar36"></div>
+			<div class="bar" id="bar37"></div>
+			<div class="bar" id="bar38"></div>
+			<div class="bar" id="bar39"></div>
+			<div class="bar" id="bar40"></div>
+			<div class="bar" id="bar41"></div>
+			<div class="bar" id="bar42"></div>
+			<div class="bar" id="bar43"></div>
+			<div class="bar" id="bar44"></div>
+			<div class="bar" id="bar45"></div>
+			<div class="bar" id="bar46"></div>
+			<div class="bar" id="bar47"></div>
+			<div class="bar" id="bar48"></div>
+			<div class="bar" id="bar49"></div>
+			<div class="bar" id="bar50"></div>
+			<div class="bar" id="bar51"></div>
+			<div class="bar" id="bar52"></div>
+			<div class="bar" id="bar53"></div>
+			<div class="bar" id="bar54"></div>
+			<div class="bar" id="bar55"></div>
+			<div class="bar" id="bar56"></div>
+			<div class="bar" id="bar57"></div>
+			<div class="bar" id="bar58"></div>
+			<div class="bar" id="bar59"></div>
+			<div class="bar" id="bar60"></div>
+			
+		</div>
+	</div>
+
+	<script>
+		const slider = document.getElementById("slider");
+		const selectedValue = document.getElementById("selectedValue");
+
+		async function bubbleSort() {
+			let bars = document.querySelectorAll(".bar");
+			for (let i = 0; i < bars.length - 1; i++) {
+				for (let j = 0; j < bars.length - i - 1; j++) {
+					let time = slider.value;
+
+					bars[j].style.backgroundColor = "red";
+
+					await new Promise(resolve => setTimeout(resolve, time));
+					
+					let bar1 = bars[j];
+					let bar2 = bars[j + 1];
+					if (parseInt(bar1.style.height) > parseInt(bar2.style.height)) {
+						swap(bar1, bar2);
+					}
+					bar1.style.backgroundColor = "#539dc2";
+				}
+			}
+		}
+		
+		slider.addEventListener("input", function() {
+			selectedValue.textContent = slider.value;
+		});
+
+		function swap(bar1, bar2) {
+			let temp = bar1.style.height;
+			bar1.style.backgroundColor = "#539dc2";
+			bar2.style.backgroundColor = "#539dc2";
+			bar1.style.height = bar2.style.height;
+			bar2.style.height = temp;
+		}
+
+		function randomize(){
+			let bars = document.querySelectorAll(".bar");
+			let heights = [];
+
+			for (let i = 0; i < bars.length; i++) {
+				heights.push(Math.floor(Math.random() * (790 - 50 + 1)) + 50);
+			}
+
+			for (let i = 0; i < bars.length; i++) {
+				bars[i].style.height = heights[i] + "px";
+			}
+		}
+
+		//setup
+
+		randomize()
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- by sicio :D -->
